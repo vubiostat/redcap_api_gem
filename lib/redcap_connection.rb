@@ -1,10 +1,9 @@
-require 'active_support/inflector'
 
 # Create cache methods
 class Class
   def cache_accessor(*args)
     args.each do |arg|
-      self.class_eval("def refresh_#{arg}; @#{arg}=export#{arg.to_s.camelize}; end")
+      self.class_eval("def refresh_#{arg}; @#{arg}=export#{arg.to_s.split('_').collect(&:capitalize).join}; end")
       self.class_eval("def #{arg}; if (self.#{arg}.nil?); refresh_#{arg}(); @#{arg};end;end")
       self.class_eval("def flush_#{arg}; @#{arg} = nil; end")
     end
@@ -12,15 +11,15 @@ class Class
 end
 
 
-class REDCapConnection
+class RedcapConnection
 
   # Core attributes
   attr_accessor :url, :token, :retries, :retry_interval, :retry_quietly
   # Cached attributes
-  cache_accessor :metadata, :arms, :events, :fieldnames, :mapping, :users, 
-                 :user_roles, :user_role_assignment, :version, 
-                 :project_information, :instruments, :repeat_instrument_event,
-                 :dags, :dag_assignment, :external_coding
+  cache_accessor :version #,:metadata, :arms, :events, :fieldnames, :mapping, :users, 
+                 #:user_roles, :user_role_assignment, 
+                 #:project_information, :instruments, :repeat_instrument_event,
+                 #:dags, :dag_assignment, :external_coding
 
   def initialize(url, token, args={})
     options = {:retries => 5, :retry_quietly => TRUE}.merge(args)
