@@ -1,10 +1,11 @@
+require_relative 'export_version.rb'
 
 # Create cache methods
 class Class
   def cache_accessor(*args)
     args.each do |arg|
-      self.class_eval("def refresh_#{arg}; @#{arg}=export#{arg.to_s.split('_').collect(&:capitalize).join}; end")
-      self.class_eval("def #{arg}; if (self.#{arg}.nil?); refresh_#{arg}(); @#{arg};end;end")
+      self.class_eval("def refresh_#{arg}; @#{arg}=export_#{arg}; end")
+      self.class_eval("def #{arg}; if (@#{arg}.nil?); refresh_#{arg}(); @#{arg};end;end")
       self.class_eval("def flush_#{arg}; @#{arg} = nil; end")
     end
   end
