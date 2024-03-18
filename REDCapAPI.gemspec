@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.description = "A port of the R package redcapAPI"
   s.authors     = ["Shawn Garbett"]
   s.email       = "shawn.garbett@vumc.org"
-  s.files       = ["lib/connection.rb","lib/makeApiCall.rb"]
+  s.files       = ["lib/redcapConnection.rb","lib/makeApiCall.rb"]
   s.homepage    = "https://github.com/vubiostat/REDCapAPI-gem"
   s.license     = "MIT"
 end
