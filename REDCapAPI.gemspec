@@ -8,5 +8,5 @@ Gem::Specification.new do |s|
   s.files       = ["lib/redcapConnection.rb","lib/makeApiCall.rb"]
   s.homepage    = "https://github.com/vubiostat/REDCapAPI-gem"
   s.license     = "MIT"
-  s.requires    = ["active_support/inflector"]
+  s.requirements= ["active_support/inflector"]
 end
