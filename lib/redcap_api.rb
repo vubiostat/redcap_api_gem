@@ -1,5 +1,7 @@
 require 'redcap_connect.rb'
 
+require 'redcap_api/export_version.rb'
+
 class RedcapApi < RedcapConnect
 
   # Core attributes
@@ -17,10 +19,6 @@ class RedcapApi < RedcapConnect
     self.retries        = options[:retries]
     self.retry_interval = options[:retry_interval]
     self.retry_quietly  = options[:retry_quietly]
-  end
-
-  def export_version
-    "stub"
   end
 
 end
