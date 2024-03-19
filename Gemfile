@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem 'redcap_api', :path => File.expand_path('..', __FILE__)
+gem 'redcap_connect', :path => File.expand_path('..', __FILE__)
 
 gem 'rake'
 gem 'rspec'

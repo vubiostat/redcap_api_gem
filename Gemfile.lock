@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    redcap_api (0.0.1)
+    redcap_connect (0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -28,7 +28,7 @@ PLATFORMS
 
 DEPENDENCIES
   rake
-  redcap_api!
+  redcap_connect!
   rspec
 
 BUNDLED WITH
