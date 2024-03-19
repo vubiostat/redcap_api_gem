@@ -25,5 +25,7 @@ class RedcapConnect
 
 end
 
-autoload :RedcapApi,   'redcap_api'
+#require 'redcap_connect/redcap_api'
+
+autoload :RedcapApi,   'redcap_connect/redcap_api'
 

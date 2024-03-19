@@ -1,6 +1,3 @@
-require 'redcap_connect.rb'
-
-require 'redcap_api/export_version.rb'
 
 class RedcapApi < RedcapConnect
 
@@ -22,3 +19,6 @@ class RedcapApi < RedcapConnect
   end
 
 end
+
+require 'redcap_connect/export_version'
+
